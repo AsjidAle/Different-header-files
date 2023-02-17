@@ -1,0 +1,92 @@
+
+#include <iostream>
+#include <list>
+
+// utilily function to display list
+void display(std::list<int> l)
+{
+    std::list<int>::iterator it = l.begin();
+    for (it; it != l.end(); it++)
+    {
+        std::cout << *it;
+    }
+}
+
+int main()
+{
+    // creating list
+    std::list<int> l1;
+    // checking weather the list empty or not?
+    (l1.empty()) ? std::cout << "List is Empty\n" : std::cout << "List is not Empty\n";
+    // inserting new elemetns at front
+    l1.push_front(3);
+    l1.push_front(7);
+    l1.push_front(9);
+    // displaying inserted elements in list
+    std::cout << "List l1 after insertion \n";
+    display(l1);
+    // inserting at last end
+    l1.push_back(1);
+    l1.push_back(14);
+    l1.push_back(3);
+    l1.push_back(1);
+    std::cout << '\n';
+    std::cout << "displaying list l1 after inserting from end\n";
+    display(l1);
+    std::cout << '\n';
+    // removing element from beginin
+    l1.erase(l1.begin());
+    std::cout << "List after removing one element from beginin\n";
+    display(l1);
+
+    // displaying the size of list
+    std::cout << '\n'
+              << l1.size() << " is the size of list l1\n";
+    std::cout << l1.max_size() << " Elements can be held  in list l1\n";
+
+    // creating new list l2 for swaping
+    std::list<int> l2;
+    l2.push_back(3);
+    l2.push_back(1);
+    l2.push_back(9);
+
+    // displaying the list l1 before swaping
+    std::cout << "List l1 before the swaping\n";
+    display(l1);
+
+    // displaying the list l2 before swaping
+    std::cout << "\nList l2 before the swaping\n";
+    display(l2);
+    // swaping list l1 and l2
+    std::swap(l1, l2);
+    std::cout << "\nList l1 after swaping \n";
+    display(l1);
+    std::cout << "\nList l2 after swaping \n";
+    display(l2);
+
+    // merging l2 in l1
+    l1.merge(l2);
+    std::cout << '\n';
+    std::cout << "List l1 after merging \n";
+    display(l1);
+    // checkig l2 merged or not
+    (l2.empty()) ? std::cout << "\nl2 is now empty and not merged\n" : std::cout << "\nEmpty now and its elements are merged in l1\n";
+    // Copying l1 into t2
+    l2 = l1;
+    std::cout << '\n'
+              << "Element in l2 have been copied\n";
+
+    std::cout << "Before deleting list l1\n";
+    display(l1);
+    std::cout << '\n';
+    std::cout << "Before deleting list l2\n";
+    display(l2);
+    std::cout << '\n';
+
+    // removing all elements from lists
+    l1.clear();
+    l2.clear();
+    (l1.empty()) ? std::cout << "List l1 is empty now \n" : std::cout << "list l1 is not empty\n";
+    (l2.empty()) ? std::cout << "List l2 is empty now \n" : std::cout << "list l2 is not empty\n";
+    return 0;
+}
