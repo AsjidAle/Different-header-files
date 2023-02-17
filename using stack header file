@@ -1,0 +1,13 @@
+#include<iostream>
+#include<stack>
+int main(){
+    std::stack<int> s1;//creating integer stack
+    s1.push(3);//inserting elements
+    s1.push(2);
+    s1.push(9);
+    std::cout<<"Stack size "<<s1.size();//getting stack size
+    std::cout<<s1.top();//getting stack top element
+    s1.pop();//removing stack top element
+    (s1.empty()!=0)?std::cout<<"stack empty ":std::cout<<"Stack not empty";//testing stack empty or not
+    return 0;
+}
