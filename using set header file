@@ -1,0 +1,95 @@
+
+#include <iostream>
+#include <set>
+int main()
+{
+    std::set<int> s1; // set creating
+    s1.insert(3);     // inserting elements
+    s1.insert(2);
+    s1.insert(7);
+    s1.insert(4);
+    s1.insert(9);
+    s1.insert(8);
+    // displaying with for each loop
+    for (int i : s1)
+    {
+        std::cout << i;
+    }
+    // displaying with built-in iterators
+    //  reverse iteration
+    std::set<int>::iterator it = s1.end();
+    s1.insert(12); // inserting more elements
+    std::cout << '\n'
+              << "Reverse order \n";
+    std::cout << *(--it);
+    std::cout << *(--it);
+    std::cout << *(--it);
+    std::cout << *(--it);
+    std::cout << *(--it);
+    std::cout << *(--it);
+    std::cout << *(--it);
+    std::cout << '\n';
+    // forward iteration by for loop
+    // no need to re-initalize it as already at begnin position
+    std::cout << "Forward order \n";
+    for (it = it; it != s1.end(); it++)
+    {
+        std::cout << *it;
+    }
+    std::cout << '\n';
+    // finding element in array
+    it = s1.find(3);
+    // diplaying either found or not
+    (it != s1.end() /*&&(*s1.end())!=3*/) ? std::cout << "Element found " : std::cout << "Not found";
+    // displaying size of set or number of elements in set
+    std::cout << '\n'
+              << s1.size() << " is size of elements or number of elements in this set";
+    std::cout << '\n'
+              << s1.max_size() << " is max storage capacity of set \n";
+    // clecking set empty or not
+    (s1.empty()) ? std::cout << "Set is now Empty " : std::cout << "Set is now Not empty";
+    s1.clear(); // removing all elements of set
+    std::cout << "\nAll elements have been removed ";
+    // re-checking the elements are removed or not?
+    (s1.empty()) ? std::cout << "\nSet is now Empty " : std::cout << "\nSet is now Not empty";
+    // re-inserting new elements
+    s1.insert(3);
+    s1.insert(8);
+    s1.insert(9);
+    // inserting same element to check either are storing same entities or not
+    s1.insert(3);
+    s1.insert(2);
+    // creating new set and inseting elements
+    std::set<int> s2 = {3, 1, 5, 2};
+    // printing elements before swap of both sets
+    std::cout << "\nSet s1 before swaping \n";
+    for (auto i : s1)
+    {
+        std::cout << i;
+    }
+    std::cout << "\nSet s2 before swaping \n";
+    for (auto i : s2)
+    {
+        std::cout << i;
+    }
+    // swaping set s1 and set s2
+    std::swap(s1, s2);
+    std::cout << "\nSet s1 after swaping\n";
+    for (auto i : s1)
+    {
+        std::cout << i;
+    }
+    std::cout << "\nSet s2 after swaping\n";
+    for (auto i : s2)
+    {
+        std::cout << i;
+    }
+    std::cout << '\n';
+    // finding element 4 in set
+    (!s1.count(4)) ? std::cout << "Not in set \n" : std::cout << "Exists in set \n";
+    //this function does inserts element if elements before insertion is already
+    s1.emplace(4);
+    //s1 after inserting 4
+    for(auto i:s1){std::cout<<i;}
+    return 0;
+}
