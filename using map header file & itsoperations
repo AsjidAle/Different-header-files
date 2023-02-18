@@ -1,0 +1,59 @@
+#include<iostream>
+#include<cstring>
+#include<map>
+
+
+using namespace std;
+
+int main(){
+
+    //creating map
+    map<string,int>mp;
+    //map created
+
+    //inserting data in map
+    bool o=0;
+    do{
+        cout<< "Do you want to enter data in map? Yes(1)/No(0)\n";
+        cin>>o;
+        if(o!=0){
+            string key;
+            cout<<"Enter the string key ";
+            cin>>key;
+            int value;
+            cout<<"Enter the integer value";
+            cin>>value;
+            mp.insert(pair<string,int>(key,value));
+        }
+    }while(o==1);
+    cout<<'\n';
+    cout<<"Do you want to see the store data and their values in your map y/n?\n";
+    char c;
+    cin>>c;
+    if(c=='y'){
+        cout<<"Do you want to see the all the keys and their crosponding values y/n?\n";
+        cin>>c;
+        if(c=='y'){
+            map<string,int>::iterator it;
+            it=mp.begin();
+
+            //loop to display whole map
+            while(it!=mp.end()){
+                cout<<"key = "<<it->first<<" and value = "<<it->second<<'\n';
+                it++;
+            }
+        }
+        else{
+            bool lo;
+            //searching values by key
+            do{
+            cout<<"Enter the key crosspond to which you want to get data\n";
+            string k;
+            cout<<mp.at(k);
+            cout<<"Do you want to serach other key? yes(1)/(0)\n";
+            cin>>lo;
+            }while(lo);
+        }
+    }
+    return 0;
+}
