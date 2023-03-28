@@ -3,7 +3,6 @@
 #include <list>
 
 
-
 // utilily function to display list
 
 void display(std::list<int> l)
